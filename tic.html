@@ -1,0 +1,93 @@
+<script>
+
+    const obj2 = {
+        "UserIp": "192.168.1.10",
+        "Search_Token_Id": "45b153727103d0a096d76b10c181f8ed45e32377",
+        "ResultIndex": "TB_0_0"
+    }
+    const obj3 = {
+        "UserIp": "192.168.1.10",
+        "Search_Token_Id": "e453aa11a9902125893711d3d1f0353d1056cb19",
+        "ResultIndex": "TB_0_0",
+        "Passengers": [{
+            "Title": "Mr",
+            "FirstName": "Anoop",
+            "LastName": "Kumar",
+            "PaxType": 1,
+            "DateOfBirth": "1984-08-12T00:00:00",
+            "Gender": "1",
+            "PassportNo": "dasdas",
+            "PassportExpiry": "2025-08-12T00:00:00",
+            "AddressLine1": "5, SITE IV",
+            "AddressLine2": "",
+            "City": "VIKASPURI",
+            "CountryCode": "IN",
+            "CountryName": "India",
+            "ContactNo": "9350405996",
+            "Email": "er.monikahooda@gmail.com",
+            "IsLeadPax": true,
+            "FFAirline": "",
+            "FFNumber": "",
+            "Fare": {
+                "BaseFare": 1400,
+                "Tax": 2000,
+                "TransactionFee": 0,
+                "YQTax": 975,
+                "AdditionalTxnFeeOfrd": 0,
+                "AdditionalTxnFeePub": 0,
+                "AirTransFee": 1
+            }
+        }
+        ]
+
+    }
+
+    const obj = {
+        "UserIp": "192.168.1.10",
+        "Adult": 1,
+        "Child": 0,
+        "Infant": 0,
+        "JourneyType": 1,
+        "CabinClass": 1,
+        AirSegments: [
+            {
+                "Origin": "BOM",
+                "Destination": "DEL",
+                "PreferredTime": "2024-01-15T00:00:00"
+            }
+        ]
+    }
+
+    const header = {
+        'Authorization': 'Basic QUxXQVlTVFJBVkVMOkFMV0FZU0BERUw=',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    }
+
+    function callApi(url, method, headers, body) {
+        return fetch(url, {
+            method: method,
+            headers: header,
+            body: JSON.stringify(body)
+        })
+            .then((e) => e.json())
+            .then((response) => {
+                console.log(response)
+                return response['Response']
+            })
+            .then(function (e) {
+                console.log(e)
+            })
+            .catch((err) => console.log(err))
+    }
+
+    //callApi('https://travelxmlapi.com/v1/airservice/rest/search', 'POST', obj)
+    //callApi('https://travelxmlapi.com/v1/airservice/rest/fare_rule','POST',obj2)
+    // callApi('https://travelxmlapi.com/v1/airservice/rest/fare_confirmation','POST',obj2)
+    //callApi('https://travelxmlapi.com/v1/airservice/rest/book', 'POST', obj2)
+
+
+
+
+
+</script>

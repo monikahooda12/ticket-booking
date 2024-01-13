@@ -1,0 +1,53 @@
+<script>
+
+
+
+    // https://www.globalmvt.com/api/medical-tourism-apis.php?type=hospitalListing
+    // https://www.globalmvt.com/api/medical-tourism-apis.php?type=doctorListing
+    // https://www.globalmvt.com/api/medical-tourism-apis.php?type=treatmentListing
+    // https://www.globalmvt.com/api/medical-tourism-apis.php?type=specialityListing
+    // https://www.globalmvt.com/api/medical-tourism-apis.php?type=country
+    // https://www.globalmvt.com/api/medical-tourism-apis.php?type=city
+
+    const API_URL = 'https://www.globalmvt.com/api/medical-tourism-apis.php?type='
+
+    function callApi(url) {
+        return fetch(API_URL + url)
+            .then(function (e) {
+                return e.json()
+            })
+            .then(function (e) {
+                if (e.status == 200) {
+                    return e.data
+                }
+            })
+            .then(function (e) {
+                return e
+            })
+            .catch(function (err) {
+                return 'there is error in api'
+            })
+    }
+
+
+    callApi('specialityListing')
+        .then(function (e) {
+        })
+
+
+    callApi('leadingDoctors')
+        .then(function (e) {
+            console.log(e)
+        })
+
+    callApi('leadingDoctdors')
+        .then(function (e) {
+            console.log(e)
+        })
+
+
+
+    function showDatainTable() {
+
+    }
+</script>
